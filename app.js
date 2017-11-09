@@ -10,14 +10,13 @@ validator.setLanguage('tr');
 let rules = {
     isim: {
         name: 'Telefon',
-        rules: 'isPhone'
+        rules: 'minLength:10'
     }
 };
 
 let data = {
-    isim: '+90 542 571 18 69'
+    isim: 'ali'
 };
 
 let a = validator.validate(rules, data);
 console.log(a);
-console.log(typeof data.isim)

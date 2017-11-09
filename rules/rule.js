@@ -1,3 +1,4 @@
+'use strict';
 
 function rules(validator){
 
@@ -64,7 +65,7 @@ function rules(validator){
     });
 
     validator.addRule('isInt', function(allData, key, params, ext){
-        return (typeof allData[key] === 'integer');
+        return (typeof allData[key] === 'number');
     });
 
     validator.addRule('isNumber', function(allData, key, params, ext){
@@ -93,18 +94,18 @@ function rules(validator){
         return regex.exec(allData[key]) !== null;
     });
 
-    validator.addRule('maxLenght', function(allData, key, params, ext){
-        let regex = new RegExp('/^.{0,' + params[0] + '}$/','gumi');
+    validator.addRule('maxLength', function(allData, key, params, ext){
+        let regex = new RegExp('^.{0,' + params[0] + '}$','gumi');
         return regex.exec(allData[key]) !== null;
     });
 
-    validator.addRule('minLenght', function(allData, key, params, ext){
-        let regex = new RegExp('/^.{' + params[0] + ',}$/','gumi');
+    validator.addRule('minLength', function(allData, key, params, ext){
+        let regex = new RegExp('(^.{' + params[0] + ',})$','gumi');
         return regex.exec(allData[key]) !== null;
     });
 
-    validator.addRule('rangeLenght', function(allData, key, params, ext){
-        let regex = new RegExp('/^.{' + params[0] + ',' + params[1] + '}$/','gumi');
+    validator.addRule('rangeLength', function(allData, key, params, ext){
+        let regex = new RegExp('^.{' + params[0] + ',' + params[1] + '}$','gumi');
         return regex.exec(allData[key]) !== null;
     });
 

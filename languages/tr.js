@@ -1,3 +1,5 @@
+'use strict';
+
 const language = {};
 
 language.isNull = '{name} alanı boş olmalıdır';
@@ -15,9 +17,9 @@ language.isPhone = '{name} alanı geçerli formatta telefon numarası değil';
 language.isCardNumber = '{name} alanı geçerli formatta Kart numarası değil';
 language.isEmail = '{name} alanı geçerli mail adresi değil';
 language.isDomain = '{name} alanı geçerli bir site adresi değil';
-language.maxLenght = '{name} alanı {p0} dan büyük olamaz';
+language.maxLength = '{name} alanı {p0} dan büyük olamaz';
 language.minLength = '{name} alanı {p0} dan küçük olamaz';
-language.rangeLenght = '{name} alanı {p0} ve {p1} arasında olmalıdır';
+language.rangeLength = '{name} alanı {p0} ve {p1} arasında olmalıdır';
 language.isIPv4 = '{name} alanı geçerli bir  IPv4 adresi değil';
 language.isIPv6 = '{name} alanı geçerli bir IPv6 adresi değil';
 language.contains = '{name} alanı {p0} değerlerinden birisi olmalıdır';
