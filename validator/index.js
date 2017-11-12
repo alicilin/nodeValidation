@@ -8,9 +8,10 @@ function validator(){
     
     this.setLanguage = function(lang){
         if(typeof this.languages[lang] === 'undefined'){
-            throw new Error(lang + ' dili sistemde kayıtlı değil');
+            return new Error(lang + ' dili sistemde kayıtlı değil');
         }
         this.language = lang;
+        return true;
     };
 
 };
@@ -20,7 +21,7 @@ validator.prototype.rules = {};
 
 validator.prototype.setLanguageDir = function(dir){
     if(!fs.existsSync(dir)){
-        throw new Error(dir + ' okunabilir bir dizin değil');
+        return new Error(dir + ' okunabilir bir dizin değil');
     }
     let that = this;
     let files = fs.readdirSync(dir);
@@ -37,8 +38,9 @@ validator.prototype.setLanguageDir = function(dir){
 
 validator.prototype.addRulesDir = function(dir){
     if(!fs.existsSync(dir)){
-        throw new Error(dir + ' okunabilir bir dizin değil');
+        return new Error(dir + ' okunabilir bir dizin değil');
     }
+
     let that = this;
     let files = fs.readdirSync(dir);
     files.forEach(function(value){
@@ -47,6 +49,7 @@ validator.prototype.addRulesDir = function(dir){
             require(path.join(dir,fileName))(that);
         }
     });
+    return true;
 };
 
 validator.prototype.parseRules = function(rules){
@@ -63,9 +66,10 @@ validator.prototype.parseRules = function(rules){
 
 validator.prototype.addRule = function(ruleName, callback){
     if(typeof callback !== 'function'){
-        throw new Error('callback bir fonksiyon olmalıdır !');
+        return new Error('callback bir fonksiyon olmalıdır !');
     }
     this.rules[ruleName] = callback;
+    return true;
 };
 
 validator.prototype.validate = function(rules, data){
