@@ -1,3 +1,4 @@
+'use strict';
 global.rootDir = __dirname;
 const path = require('path');
 const v = require(path.join(rootDir,'validator'));
