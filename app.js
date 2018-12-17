@@ -16,7 +16,8 @@ let rules = {
 };
 
 let data = {
-    isim: 'ali'
+    isim: 'ali',
+    isim2: 'veli'
 };
 
 let a = validator.validate(rules, data);
